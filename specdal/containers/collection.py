@@ -7,7 +7,7 @@ from collections import OrderedDict, defaultdict
 from .spectrum import Spectrum
 import specdal.operators as op
 from itertools import groupby
-from specdal.readers import read
+from specdal.readers import read, SUPPORTED_READERS
 import copy
 import warnings
 from os.path import abspath, expanduser, splitext
@@ -234,7 +234,7 @@ class Collection(object):
     ##################################################
     # reader
     def read(self, directory, measure_type='pct_reflect',
-             ext=[".asd", ".sed", ".sig",".pico",".light"], recursive=False,
+             ext=list(SUPPORTED_READERS), recursive=False,
              verbose=False):
         """
         read all files in a path matching extension
