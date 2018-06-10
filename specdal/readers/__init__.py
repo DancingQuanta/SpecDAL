@@ -6,15 +6,14 @@ from .asd import read_asd
 from .sed import read_sed
 from .sig import read_sig
 from .pico import read_pico
-from .txt_asd1 import read_txt_asd1
-from .txt_asd2 import read_txt_asd2
+from .txt_asd import read_txt_asd
 
 modules = glob.glob(dirname(__file__)+"/*.py")
 __all__ = [basename(f)[:-3] for f in modules if isfile(f) and not f.endswith('__init__.py')]
 
 SUPPORTED_TEXT_READERS = {
-        '.0': read_txt_asd1,
-        '.a': read_txt_asd2,
+        '.0': read_txt_asd,
+        '.a': read_txt_asd,
 }
 
 SUPPORTED_READERS = {
